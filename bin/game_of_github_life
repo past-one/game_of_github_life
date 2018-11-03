@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'game_of_github_life'
+
+path = ARGV[0]
+return puts('path not specified') unless path.size.positive?
+end_year = ARGV[1].to_i
+end_year = nil if end_year.zero?
+
+GameOfGithubLife.play(path, end_year)

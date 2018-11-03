@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'game_of_github_life'
+
+require 'pry'
+Pry.start
