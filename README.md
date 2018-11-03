@@ -3,9 +3,23 @@
 Play [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 in Github. Each step is represented as a year in your contributions calendar.
 
+## Examples
+
+![1970](examples/1970.PNG)
+
+![1971](examples/1971.PNG)
+
+![1972](examples/1972.PNG)
+
 ## Purpose
 
-This repository created has no purpose and does not solve any problem.
+This gem has no purpose and does not solve any problem.
+It's just another way to abuse previous date committing.
+
+It's not a new idea to automatically create commits from the past,
+here's similar projects I found:
+- [gelstudios/gitfiti](https://github.com/gelstudios/gitfiti)
+- [IonicaBizau/github-contributions](https://github.com/IonicaBizau/github-contributions)
 
 ## Installation
 
