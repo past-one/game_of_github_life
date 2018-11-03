@@ -9,7 +9,7 @@ module GameOfGithubLife
       def start_date(year = nil)
         now = Time.now
         date = if year
-                 Time.new(year, 1, 1, 12) - DAY * DAYS_IN_WEEK
+                 Time.new(year, 12, 31, 12) - DAY * DAYS_IN_WEEK * NUMBER_OF_COLUMNS
                else
                  Time.new(now.year - 1, now.month, now.day, 12)
                end

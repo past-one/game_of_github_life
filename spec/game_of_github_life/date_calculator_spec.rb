@@ -30,6 +30,12 @@ RSpec.describe GameOfGithubLife::DateCalculator do
 
       it { is_expected.to eq Time.new(2015, 12, 27, 12) }
     end
+
+    context '2000' do
+      let(:year) { 2000 }
+
+      specify('starts with the 2nd of January') { is_expected.to eq Time.new(2000, 1, 2, 12) }
+    end
   end
 
   describe '#date_by_cell' do
