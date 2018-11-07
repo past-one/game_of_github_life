@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module GameOfGithubLife
+  # Implements Conway's game of life logic
   class Game
     def self.field_footprint(field)
       field.map(&:join).join.to_i(2)
@@ -39,18 +42,10 @@ module GameOfGithubLife
       ended
     end
 
-    def neighbors(x, y)
-      [
-          [x - 1, y - 1],
-          [x - 1, y],
-          [x - 1, y + 1],
-          [x, y - 1],
-          [x, y + 1],
-          [x + 1, y - 1],
-          [x + 1, y],
-          [x + 1, y + 1],
-      ].select { |(a, b)| x_size.cover?(a) && y_size.cover?(b) }
-          .map { |(a, b)| field[a][b] }
+    def neighbors(x_coord, y_coord)
+      all_neighbors(x_coord, y_coord)
+        .select { |(a, b)| x_size.cover?(a) && y_size.cover?(b) }
+        .map { |(a, b)| field[a][b] }
     end
 
     protected
@@ -61,6 +56,19 @@ module GameOfGithubLife
     attr_accessor :prev_prev_footprint
 
     private
+
+    def all_neighbors(x_coord, y_coord)
+      [
+        [x_coord - 1, y_coord - 1],
+        [x_coord - 1, y_coord],
+        [x_coord - 1, y_coord + 1],
+        [x_coord, y_coord - 1],
+        [x_coord, y_coord + 1],
+        [x_coord + 1, y_coord - 1],
+        [x_coord + 1, y_coord],
+        [x_coord + 1, y_coord + 1],
+      ]
+    end
 
     def check_end
       return if ended

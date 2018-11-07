@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require_relative 'game_of_github_life/date_calculator'
 require_relative 'game_of_github_life/game'
 require_relative 'game_of_github_life/git_executor'
 require_relative 'game_of_github_life/version'
 
+# Main module that implements +play+ method
 module GameOfGithubLife
-  # first and last columns could include another year, so skip it
+  # First and last columns could include another year, so skip it
   NUMBER_OF_COLUMNS = DateCalculator::NUMBER_OF_COLUMNS - 2
   NUMBER_OF_ROWS = DateCalculator::DAYS_IN_WEEK
 
@@ -18,13 +21,13 @@ module GameOfGithubLife
   # ...................................................
   #
   START_FIELD = [
-      ([0] * NUMBER_OF_COLUMNS).freeze,
-      ([0] * NUMBER_OF_COLUMNS).freeze,
-      ([0] * NUMBER_OF_COLUMNS).freeze,
-      ([1] * NUMBER_OF_COLUMNS).freeze,
-      ([0] * NUMBER_OF_COLUMNS).freeze,
-      ([0] * NUMBER_OF_COLUMNS).freeze,
-      ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([1] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
+    ([0] * NUMBER_OF_COLUMNS).freeze,
   ].freeze
 
   # 1969 days are invalid dates for git
@@ -38,7 +41,7 @@ module GameOfGithubLife
     executor = GitExecutor.new(path)
     year = START_YEAR
 
-    commit_field(executor, START_FIELD, START_YEAR)
+    commit_field(executor, START_FIELD, year)
 
     while year < end_year && !game.ended?
       field = game.next

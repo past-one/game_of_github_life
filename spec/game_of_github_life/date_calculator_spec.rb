@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe GameOfGithubLife::DateCalculator do
   describe '#start_date' do
     subject { described_class.start_date(year) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe GameOfGithubLife::Game do
   describe '#neighbors' do
     subject { described_class.new(field).neighbors(x, y) }
@@ -5,9 +7,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'all the same' do
       let(:field) do
         [
-            [0, 0, 0],
-            [0, 1, 0],
-            [0, 0, 0],
+          [0, 0, 0],
+          [0, 1, 0],
+          [0, 0, 0],
         ]
       end
 
@@ -20,9 +22,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'different' do
       let(:field) do
         [
-            [0, 1, 1],
-            [0, 1, 1],
-            [0, 0, 0],
+          [0, 1, 1],
+          [0, 1, 1],
+          [0, 0, 0],
         ]
       end
 
@@ -35,9 +37,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'edge case' do
       let(:field) do
         [
-            [0, 1, 1],
-            [0, 1, 1],
-            [0, 0, 0],
+          [0, 1, 1],
+          [0, 1, 1],
+          [0, 0, 0],
         ]
       end
 
@@ -50,8 +52,8 @@ RSpec.describe GameOfGithubLife::Game do
     context 'not squared field' do
       let(:field) do
         [
-            [0, 1, 1],
-            [0, 1, 1],
+          [0, 1, 1],
+          [0, 1, 1],
         ]
       end
 
@@ -68,56 +70,59 @@ RSpec.describe GameOfGithubLife::Game do
     context 'underpopulation' do
       let(:field) do
         [
-            [1, 0, 1],
-            [0, 0, 0],
-            [1, 0, 1],
+          [1, 0, 1],
+          [0, 0, 0],
+          [1, 0, 1],
         ]
       end
 
       it do
-        is_expected.to eq [
-                              [0, 0, 0],
-                              [0, 0, 0],
-                              [0, 0, 0],
-                          ]
+        result = [
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0],
+        ]
+        is_expected.to eq result
       end
     end
 
     context 'overpopulation' do
       let(:field) do
         [
-            [1, 1, 1],
-            [1, 1, 1],
-            [1, 1, 1],
+          [1, 1, 1],
+          [1, 1, 1],
+          [1, 1, 1],
         ]
       end
 
       it do
-        is_expected.to eq [
-                              [1, 0, 1],
-                              [0, 0, 0],
-                              [1, 0, 1],
-                          ]
+        result = [
+          [1, 0, 1],
+          [0, 0, 0],
+          [1, 0, 1],
+        ]
+        is_expected.to eq result
       end
     end
 
     context 'nothing changes' do
       let(:field) do
         [
-            [0, 0, 0, 0],
-            [0, 1, 1, 0],
-            [0, 1, 1, 0],
-            [0, 0, 0, 0],
+          [0, 0, 0, 0],
+          [0, 1, 1, 0],
+          [0, 1, 1, 0],
+          [0, 0, 0, 0],
         ]
       end
 
       it do
-        is_expected.to eq [
-                              [0, 0, 0, 0],
-                              [0, 1, 1, 0],
-                              [0, 1, 1, 0],
-                              [0, 0, 0, 0],
-                          ]
+        result = [
+          [0, 0, 0, 0],
+          [0, 1, 1, 0],
+          [0, 1, 1, 0],
+          [0, 0, 0, 0],
+        ]
+        is_expected.to eq result
       end
     end
   end
@@ -128,8 +133,8 @@ RSpec.describe GameOfGithubLife::Game do
     context 'empty field' do
       let(:field) do
         [
-            [0, 0],
-            [0, 0],
+          [0, 0],
+          [0, 0],
         ]
       end
 
@@ -139,9 +144,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'full field 3x3' do
       let(:field) do
         [
-            [1, 1, 1],
-            [1, 1, 1],
-            [1, 1, 1],
+          [1, 1, 1],
+          [1, 1, 1],
+          [1, 1, 1],
         ]
       end
 
@@ -151,10 +156,10 @@ RSpec.describe GameOfGithubLife::Game do
     context '2x2 square in 4x4' do
       let(:field) do
         [
-            [0, 0, 0, 0],
-            [0, 1, 1, 0],
-            [0, 1, 1, 0],
-            [0, 0, 0, 0],
+          [0, 0, 0, 0],
+          [0, 1, 1, 0],
+          [0, 1, 1, 0],
+          [0, 0, 0, 0],
         ]
       end
 
@@ -168,9 +173,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'at the start' do
       let(:field) do
         [
-            [0, 0, 0],
-            [0, 1, 0],
-            [0, 0, 0],
+          [0, 0, 0],
+          [0, 1, 0],
+          [0, 0, 0],
         ]
       end
 
@@ -179,9 +184,9 @@ RSpec.describe GameOfGithubLife::Game do
       context 'with empty field' do
         let(:field) do
           [
-              [0, 0, 0],
-              [0, 0, 0],
-              [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
           ]
         end
 
@@ -192,9 +197,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'all died' do
       let(:field) do
         [
-            [0, 0, 0],
-            [0, 1, 0],
-            [0, 0, 0],
+          [0, 0, 0],
+          [0, 1, 0],
+          [0, 0, 0],
         ]
       end
 
@@ -206,10 +211,10 @@ RSpec.describe GameOfGithubLife::Game do
     context 'nothing changes' do
       let(:field) do
         [
-            [0, 0, 0, 0],
-            [0, 1, 1, 0],
-            [0, 1, 1, 0],
-            [0, 0, 0, 0],
+          [0, 0, 0, 0],
+          [0, 1, 1, 0],
+          [0, 1, 1, 0],
+          [0, 0, 0, 0],
         ]
       end
 
@@ -221,9 +226,9 @@ RSpec.describe GameOfGithubLife::Game do
     context 'repeating cycle of 1 step' do
       let(:field) do
         [
-            [0, 1, 0],
-            [0, 1, 0],
-            [0, 1, 0],
+          [0, 1, 0],
+          [0, 1, 0],
+          [0, 1, 0],
         ]
       end
 

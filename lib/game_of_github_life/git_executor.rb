@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module GameOfGithubLife
+  # Performs git commands in specified repository
   class GitExecutor
     attr_reader :path
 
